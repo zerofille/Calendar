@@ -8,14 +8,13 @@ import {
   endOfWeek,
 } from "date-fns";
 export default function CalendarBody() {
-  //   const selectedDate = new Date();
-  //   const startDate = startOfWeek(startOfMonth(selectedDate));
-  //   const endDate = endOfWeek(endOfMonth(selectedDate));
   function takeWeek(start = new Date()) {
-    let date = startOfWeek(startOfDay(start));
+    let date = startOfWeek(start);
     return () => {
-      const week = [...Array(7)].map((_, i) => addDays(date, i));
-      date = addDays(week[6], 1);
+      const week = new Array(7)
+        .fill(null)
+        .map((_, i) => <div>{format(addDays(date, i), "d")}</div>);
+      // date = addDays(week[6], 1);
       return week;
     };
   }
@@ -29,7 +28,7 @@ export default function CalendarBody() {
 
     return () => {
       const weekGen = takeWeek(startOfMonth(date));
-      const endDate = startOfDay(endOfWeek(endOfMonth(date)));
+      const endDate = endOfWeek(endOfMonth(date));
       month.push(weekGen());
       while (lastDayOfRange(month) < endDate) {
         month.push(weekGen());
@@ -39,9 +38,11 @@ export default function CalendarBody() {
       month = [];
       date = addDays(lastDayOfRange(month), 1);
 
-      return ;
+      return range;
     };
   }
 
-  return null;
+  console.log();
+
+  return <div>{takeWeek(new Date())()}</div>;
 }
