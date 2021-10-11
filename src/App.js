@@ -1,10 +1,10 @@
-import CalendarBody from "./Components/Calendar-body";
+import Calendar from "./Components/Calendar";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <CalendarBody />
+      <Calendar />
     </div>
   );
 }
