@@ -1,17 +1,9 @@
-import {
-  format,
-  addDays,
-  startOfDay,
-  startOfMonth,
-  startOfWeek,
-  endOfMonth,
-  endOfWeek,
-} from "date-fns";
-export default function SelectedDay({ day }) {
+import {format} from "date-fns";
+export default function SelectedDay({ currentDay }) {
   return (
     <div>
-      <p>{format(day, "EEEE")}</p>
-      <h1>{format(day, "i")}</h1>
+      <p>{format(currentDay, "eeee")}</p>
+      <h1>{format(currentDay, "d")}</h1>
     </div>
   );
 }

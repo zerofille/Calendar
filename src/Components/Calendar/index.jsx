@@ -1,20 +1,12 @@
-import {
-  format,
-  addDays,
-  startOfDay,
-  startOfMonth,
-  startOfWeek,
-  endOfMonth,
-  endOfWeek,
-} from "date-fns";
 import SelectedDay from "../SelectedDay";
 import CalendarBody from "../CalendarBody";
+import { useState } from "react";
 export default function Calendar() {
-  const date = new Date();
+  const [currentDay, setCurrentDay] = useState(new Date());
   return (
     <div>
-      <SelectedDay day={date} />
-      <CalendarBody selectedDay={date}/>
+      <SelectedDay currentDay={currentDay} />
+      <CalendarBody currentDay={currentDay} setCurrentDay={setCurrentDay} />
     </div>
   );
 }

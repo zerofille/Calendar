@@ -1,18 +1,15 @@
-import {
-  format,
-  addDays,
-  startOfDay,
-  startOfMonth,
-  startOfWeek,
-  endOfMonth,
-  endOfWeek,
-} from "date-fns";
+import { startOfWeek } from "date-fns";
+import Day from "../Day";
 
-export default function Week({ startingDay }) {
-  const startingDate = startOfWeek(startingDay);
-  const daysArray = new Array(7)
-    .fill(null)
-    .map((_, i) => 
-    <div> {format(addDays(startingDate, i), "EEEEE")}</div>);
-  return <div>{daysArray}</div>;
+export default function Week(props) {
+  const startingDate = startOfWeek(props.startingDay);
+  const {currentDay}=props
+  const daysArr = new Array(7).fill(null).map((_, i) => {
+    return(
+    
+    ?<Day style={{backgroundColor:'red'}} startingDate={startingDate} i={i} />
+    :<Day startingDate={startingDate} i={i} />)
+  });
+
+  return <div style={{ display: "flex" }}>{daysArr}</div>;
 }
