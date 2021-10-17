@@ -1,9 +1,10 @@
 import { format, addDays } from "date-fns";
-export default function Day(props) {
-    
+function Day({startingDate, setCurrentDay,i}) {
+  
   return (
     <div style={{ margin: "20px" }}>
-      {format(addDays(props.startingDate, props.i), "d")}
+      {format(addDays(startingDate,i), "d")}
     </div>
   );
 }
+export default Day;

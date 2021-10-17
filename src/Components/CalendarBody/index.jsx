@@ -15,7 +15,7 @@ function DaysOfWeek({ currentDay }) {
   const startingDate = startOfWeek(currentDay);
   const daysArr = new Array(7).fill(null).map((_, i) => {
     return (
-      <div style={{ margin: "24px" }}>
+      <div style={{ margin: "10px" }}>
         {format(addDays(startingDate, i), "EEEEE")}
       </div>
     );
