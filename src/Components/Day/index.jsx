@@ -1,9 +1,14 @@
-import { format, addDays } from "date-fns";
-function Day({startingDate, setCurrentDay,i}) {
-  
+import { format, addDays, startOfWeek } from "date-fns";
+function Day({ startingDate,setCurrentDay, i, currentDay, startingDay }) {
+ 
+ const dayHandler = (сurrentDay)=>{
+setCurrentDay(startingDate)
+ }
+ 
   return (
-    <div style={{ margin: "20px" }}>
-      {format(addDays(startingDate,i), "d")}
+  
+    <div onClick={dayHandler} style={{ margin: "20px" }}>
+      {format(addDays(startingDate, i), "d")}
     </div>
   );
 }
