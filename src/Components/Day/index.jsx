@@ -2,15 +2,15 @@ import React, { useContext } from "react";
 import { format, addDays, startOfWeek } from "date-fns";
 import DayContext from "../../Context";
 
-function Day({ startingDate, i, startingDay }) {
+function Day({day}) {
   const [currentDay, setCurrentDay] = useContext(DayContext);
   const dayHandler = () => {
-    setCurrentDay(startingDate);
+    setCurrentDay(day);
   };
 
   return (
     <div onClick={dayHandler} style={{ margin: "20px" }}>
-      {format(addDays(startingDate, i), "d")}
+      {format(day, "d")}
     </div>
   );
 }

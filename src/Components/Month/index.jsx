@@ -1,18 +1,20 @@
 import React, { useContext } from "react";
-import { addDays } from "date-fns";
+import { addDays, startOfMonth } from "date-fns";
 import Week from "../Week";
 import DayContext from "../../Context";
+import { getWeeksInMonth } from "date-fns/esm";
 
 export default function Month() {
   const [currentDay, setCurrentDay] = useContext(DayContext);
+  const weekAmount = getWeeksInMonth(currentDay);
+  const startMonth = startOfMonth(currentDay);
   return (
     <div style={{ backgroundColor: "wheat" }}>
-      <Week startingDay={addDays(currentDay, -14)} />
-      <Week startingDay={addDays(currentDay, 7)} />
-      <Week startingDay={currentDay} />
-      <Week startingDay={addDays(currentDay, 7)} />
-      <Week startingDay={addDays(currentDay, 14)} />
-      <Week startingDay={addDays(currentDay, 21)} />
+      {new Array(Number([weekAmount])).fill(null).map((_, i) => {
+        return <Week startingDay={addDays(startMonth, 7 * i)} />;
+      })}
     </div>
+
+    
   );
 }

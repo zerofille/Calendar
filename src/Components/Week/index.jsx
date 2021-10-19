@@ -7,7 +7,7 @@ function Week( props ) {
   const startingDate = startOfWeek(props.startingDay);
   const daysArr = new Array(7).fill(null).map((_, i) => {
     return (
-      <Day startingDate={startingDate} startingDay={props.startingDay}  i={i}/>
+      <Day  day={addDays(startingDate,i)}  />
     );
   });
   return <div style={{ display: 'flex' }}>{daysArr}</div>;
