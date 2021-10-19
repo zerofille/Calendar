@@ -1,16 +1,18 @@
+import React, { useContext } from "react";
 import { addDays } from "date-fns";
 import Week from "../Week";
+import DayContext from "../../Context";
 
-export default function Month(props) {
-
+export default function Month() {
+  const [currentDay, setCurrentDay] = useContext(DayContext);
   return (
     <div style={{ backgroundColor: "wheat" }}>
-      <Week useProps={[props.currentDay, props.setCurrentDay]} startingDay={addDays(props.currentDay, -14)} />
-      <Week useProps={[props.currentDay, props.setCurrentDay]}  startingDay={addDays(props.currentDay, -7)} />
-      <Week useProps={[props.currentDay, props.setCurrentDay]}  startingDay={props.currentDay} />
-      <Week useProps={[props.currentDay, props.setCurrentDay]}  startingDay={addDays(props.currentDay, 7)} />
-      <Week useProps={[props.currentDay, props.setCurrentDay]} startingDay={addDays(props.currentDay, 14)} />
+      <Week startingDay={addDays(currentDay, -14)} />
+      <Week startingDay={addDays(currentDay, 7)} />
+      <Week startingDay={currentDay} />
+      <Week startingDay={addDays(currentDay, 7)} />
+      <Week startingDay={addDays(currentDay, 14)} />
+      <Week startingDay={addDays(currentDay, 21)} />
     </div>
   );
 }
-

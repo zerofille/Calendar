@@ -1,5 +1,9 @@
+import React, { useContext } from "react";
 import {format} from "date-fns";
-export default function SelectedDay({ currentDay }) {
+import DayContext from "../../Context";
+
+export default function SelectedDay() {
+  const [currentDay, setCurrentDay]=useContext(DayContext)
   return (
     <div>
       <p>{format(currentDay, "eeee")}</p>
