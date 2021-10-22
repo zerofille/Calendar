@@ -1,0 +1,17 @@
+.calendarBody {
+  width: 50%;
+  background-color: #f5f5f5;
+}
+.daysInitials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+  color: rgb(189, 12, 139);
+  font-weight: bold;
+  font-size: larger;
+}
+.monthName {
+  color: #008881;
+  font-weight: bolder;
+}
