@@ -1,8 +1,29 @@
-.day {
+.hiddenDays {
   margin: 20px;
   width: 21px;
-  color: #b7b7b7;
-  font-weight: bolder;
+  color: #020202;
+  font-weight: bold;
+  &:hover {
+    background-color: #009189;
+    color: #f5f5f5;
+  }
+}
+.notSelected {
+  margin: 20px;
+  width: 21px;
+  color: #746a6a;
+  font-weight: bold;
+  &:hover {
+    background-color: #009189;
+    color: #f5f5f5;
+  }
+}
+.selected {
+  margin: 20px;
+  width: 21px;
+  color: #d06969;
+  font-weight: bold;
+
   &:hover {
     background-color: #009189;
     color: #f5f5f5;
