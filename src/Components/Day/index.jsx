@@ -10,17 +10,12 @@ function Day({ day }) {
     setCurrentDay(day);
   };
 
-  const selectedDay = {
+  const stylesForDays = cx(styles.hiddenDays, {
     [styles.selected]: isSameDay(day, currentDay),
-  };
-  const hiddenDays = {
-    [styles.hiddenDays]: isSameMonth(day, currentDay),
-  };
+    [styles.notSelected]: isSameMonth(day, currentDay),
+  });
   return (
-    <div
-      onClick={dayHandler}
-      className={cx(styles.notSelected, selectedDay, hiddenDays)}
-    >
+    <div onClick={dayHandler} className={stylesForDays}>
       {format(day, "d")}
     </div>
   );

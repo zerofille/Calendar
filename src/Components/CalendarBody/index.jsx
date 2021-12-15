@@ -6,6 +6,7 @@ import styles from "./style.module.scss";
 
 export default function CalendarBody(props) {
   const [currentDay, setCurrentDay] = useContext(DayContext);
+  console.log(startOfWeek(currentDay))
   return (
     <div className={styles.calendarBody}>
       <h1 className={styles.monthName}>{format(currentDay, "LLLL yyyy")}</h1>
